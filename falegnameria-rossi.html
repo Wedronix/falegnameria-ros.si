@@ -1,0 +1,715 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Falegnameria Rossi — Falegnameria Artigianale a Montepulciano dal 1979</title>
+  <meta name="description" content="Falegnameria Artigianale Rossi a Montepulciano: infissi, arredi, porte, scale in legno massello su misura. Tradizione e cura artigianale dal 1979.">
+  <link rel="canonical" href="https://falegnameria-rossi.it/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+  <style>
+    /* ===== RESET & BASE ===== */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      line-height: 1.6;
+      color: #2C1810;
+      background: #FDF8F2;
+      overflow-x: hidden;
+    }
+    img { max-width: 100%; height: auto; display: block; }
+    a { text-decoration: none; color: inherit; }
+    button { cursor: pointer; border: none; font-family: inherit; }
+
+    /* ===== TYPOGRAPHY ===== */
+    .text-display {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      line-height: 1.1;
+      color: #2C1810;
+      text-wrap: balance;
+    }
+    .text-headline {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      line-height: 1.15;
+      color: #2C1810;
+      margin-bottom: 1rem;
+      text-wrap: balance;
+    }
+    .text-subtitle {
+      font-size: 1.125rem;
+      color: #6B4A36;
+      max-width: 600px;
+      margin-bottom: 2.5rem;
+    }
+    .text-body {
+      font-size: 1rem;
+      line-height: 1.7;
+      color: #4A3528;
+    }
+    .text-small { font-size: 0.875rem; color: #8D6E63; }
+
+    /* ===== LAYOUT ===== */
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 clamp(1rem, 3vw, 2rem);
+    }
+    .section {
+      padding: clamp(4rem, 8vw, 8rem) 0;
+    }
+    .section-alt { background: #FFFFFF; }
+    .grid { display: grid; gap: 2rem; }
+    .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+    @media (max-width: 768px) {
+      .grid-2, .grid-3 { grid-template-columns: 1fr; }
+    }
+
+    /* ===== BUTTONS ===== */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.875rem 1.75rem;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 1rem;
+      letter-spacing: 0.01em;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .btn-primary {
+      background: #5D4037;
+      color: #FFFFFF;
+    }
+    .btn-primary:hover {
+      background: #4E342E;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(93, 64, 55, 0.3);
+    }
+    .btn-ghost {
+      background: transparent;
+      color: #5D4037;
+      border: 1.5px solid rgba(93, 64, 55, 0.3);
+    }
+    .btn-ghost:hover {
+      background: rgba(93, 64, 55, 0.05);
+      border-color: rgba(93, 64, 55, 0.6);
+    }
+    .btn-white {
+      background: #FFFFFF;
+      color: #2C1810;
+    }
+    .btn-white:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    /* ===== HEADER ===== */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: rgba(253, 248, 242, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(93, 64, 55, 0.1);
+      transition: transform 0.3s;
+    }
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.25rem;
+      color: #2C1810;
+    }
+    .logo-icon {
+      width: 24px;
+      height: 24px;
+      background: #5D4037;
+      clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    }
+    nav a {
+      margin-left: 1.5rem;
+      font-weight: 500;
+      font-size: 0.9375rem;
+      color: #5D4037;
+      transition: color 0.2s;
+    }
+    nav a:hover, nav a.active { color: #2C1810; }
+
+    /* ===== HERO ===== */
+    .hero {
+      padding-top: 72px;
+      min-height: 100vh;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+    }
+    /* Use a high-quality placeholder from Unsplash that matches the wood/craft aesthetic */
+    .hero-bg::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(
+          to bottom,
+          rgba(255,255,255,0) 0%,
+          rgba(253,248,242,0.95) 100%
+        ),
+        linear-gradient(
+          to top,
+          rgba(253,248,242,1) 0%,
+          rgba(253,248,242,0) 100%
+        ),
+        url('https://images.unsplash.com/photo-1615321565258-001cbe0b97b3?auto=format&fit=crop&w=1800&q=80');
+      background-size: cover;
+      background-position: center;
+      animation: slow-zoom 30s ease-in-out infinite alternate;
+    }
+    @keyframes slow-zoom {
+      from { transform: scale(1); }
+      to { transform: scale(1.05); }
+    }
+    .hero-content {
+      max-width: 650px;
+      padding: calc(8vh + 4rem) 0 calc(8rem + 4vh);
+    }
+    .hero-content .text-display { color: #2C1810; text-shadow: 0 2px 20px rgba(255,255,255,0.8); }
+    .hero-buttons { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 2rem; }
+
+    /* ===== ABOUT ===== */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    .about-image {
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(93, 64, 55, 0.15);
+    }
+    .about-image img {
+      width: 100%;
+      transition: transform 0.5s;
+    }
+    .about-image:hover img { transform: scale(1.05); }
+    @media (max-width: 768px) { .about-grid { grid-template-columns: 1fr; gap: 2rem; } }
+
+    /* ===== SERVICES ===== */
+    .service-card {
+      padding: 2.5rem 2rem;
+      background: #FFFFFF;
+      border-radius: 12px;
+      border: 1px solid rgba(93, 64, 55, 0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .service-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 36px rgba(93, 64, 55, 0.15);
+    }
+    .service-icon {
+      width: 48px;
+      height: 48px;
+      margin-bottom: 1.25rem;
+      color: #5D4037;
+    }
+    .service-card h3 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.375rem;
+      margin-bottom: 0.75rem;
+      color: #2C1810;
+    }
+
+    /* ===== GALLERY ===== */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.5rem;
+    }
+    .gallery-item {
+      border-radius: 12px;
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+      height: 300px;
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s;
+    }
+    .gallery-item:hover img { transform: scale(1.08); }
+    .gallery-item .overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(44, 24, 16, 0.6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .gallery-item:hover .overlay { opacity: 1; }
+    .overlay-text {
+      color: white;
+      font-size: 0.875rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      padding: 0.5rem 1rem;
+      border: 1px solid rgba(255,255,255,0.4);
+    }
+    @media (max-width: 768px) { .gallery-item { height: 200px; } }
+
+    /* ===== CONTACT ===== */
+    .contact-info h3 { font-family: 'DM Serif Display', serif; font-size: 1.25rem; margin-bottom: 0.75rem; }
+    .form-group {
+      margin-bottom: 1.25rem;
+      display: flex;
+      flex-direction: column;
+    }
+    .form-group label {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: #2C1810;
+      margin-bottom: 0.375rem;
+    }
+    .form-input {
+      padding: 0.875rem 1rem;
+      border: 1px solid rgba(93, 64, 55, 0.2);
+      background: #FFFFFF;
+      color: #2C1810;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 1rem;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .form-input:focus {
+      outline: none;
+      border-color: #5D4037;
+      box-shadow: 0 0 0 3px rgba(93, 64, 55, 0.1);
+    }
+    .form-input::placeholder { color: #BBA89A; }
+
+    /* ===== STATS ===== */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
+    .stat-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.75rem 1rem;
+      background: #FFFFFF;
+      border: 1px solid rgba(93, 64, 55, 0.1);
+      border-radius: 8px;
+      font-size: 0.875rem;
+      color: #6B4A36;
+    }
+    .stat-item svg { width: 20px; height: 20px; color: #5D4037; flex-shrink: 0; }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: #2C1810;
+      color: #FFFFFF;
+      padding: 5rem 0 3rem;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.25fr 1fr 1fr 1.25fr;
+      gap: 3rem;
+    }
+    .footer-section h4 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.125rem;
+      margin-bottom: 1.25rem;
+    }
+    .footer-section p { color: rgba(255,255,255,0.7); font-size: 0.875rem; }
+    .footer-links a {
+      display: block;
+      padding: 0.375rem 0;
+      color: rgba(255,255,255,0.7);
+      font-size: 0.875rem;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: #FFFFFF; }
+    .footer-bottom {
+      padding-top: 2rem;
+      margin-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      font-size: 0.8125rem;
+      color: rgba(255,255,255,0.6);
+    }
+    @media (max-width: 768px) { .footer-grid { grid-template-columns: 1fr; } }
+
+    /* ===== SCROLL ANIMATION ===== */
+    .reveal-down {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal-down.in-view { opacity: 1; transform: translateY(0); }
+    .reveal-down.stagger-1 { transition-delay: 0.1s; }
+    .reveal-down.stagger-2 { transition-delay: 0.2s; }
+    .reveal-down.stagger-3 { transition-delay: 0.3s; }
+
+    /* ===== LIGHTBOX ===== */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 200;
+      background: rgba(44, 24, 16, 0.97);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s, visibility 0.3s;
+    }
+    .lightbox.active { opacity: 1; visibility: visible; }
+    .lightbox img {
+      max-width: 85vw;
+      max-height: 85vh;
+      border-radius: 8px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+    }
+    .lightbox-close {
+      position: absolute;
+      top: 2rem;
+      right: 2rem;
+      width: 40px;
+      height: 40px;
+      background: rgba(255,255,255,0.15);
+      border: none;
+      border-radius: 50%;
+      color: white;
+      font-size: 1.25rem;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="container header-inner">
+      <a href="#" class="logo">
+        <div class="logo-icon"></div>
+        <span>Falegnameria Rossi</span>
+      </a>
+      <nav>
+        <a href="#chi-siamo">Chi Siamo</a>
+        <a href="#servizi">Servizi</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#contatti" class="btn btn-primary">Contattaci</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="container hero-content">
+      <p class="text-small reveal-down" style="opacity:1; transform:translateY(0);">
+        <svg width="16" height="16" viewBox="0 0 100 100"><polygon points="50,0 61,39 100,39 69,61 80,100 50,78 20,100 31,61 0,39 39,39" fill="gold"/></svg>
+        Falegnameria Artigianale — Montepulciano dal 1979
+      </p>
+      <h1 class="text-display reveal-down" style="opacity:1; transform:translateY(0);">
+        L'artigianato che costruisce relazioni con il legno
+      </h1>
+      <p class="text-subtitle reveal-down" style="opacity:1; transform:translateY(0);">
+        Da 45 anni creiamo e restauriamo mobili e finiture in legno massello a misura d'uomo.
+        Ogni pezzo è un'esperienza, nato da mani esperte e amore per il dettaglio.
+      </p>
+      <div class="hero-buttons reveal-down" style="opacity:1; transform:translateY(0);">
+        <a href="#contatti" class="btn btn-primary">Richiedi un preventivo</a>
+        <a href="#portfolio" class="btn btn-ghost">Guarda il nostro lavoro</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="section" id="chi-siamo">
+    <div class="container about-grid">
+      <div class="about-image reveal-down">
+        <img src="https://images.unsplash.com/photo-1605199044858-db2a59e95b8c?auto=format&fit=crop&w=600&q=70"
+             alt="Maestro falegname al lavoro nel laboratorio">
+      </div>
+      <div class="about-content">
+        <h2 class="text-headline reveal-down">
+          L'attesa giusta per un lavoro fatto bene
+        </h2>
+        <p class="text-body reveal-down stagger-1">
+          A Montepulciano, tra colline e vigneti del Toscana, Falegnameria Rossi crea su misura
+          e con cura ogni pezzo di legno massello, senza fretta e compromessi. Ogni creazione
+          richiede pazienza, precisione e dedizione. Perché quando ci si impegna in ogni fase,
+          dall'ideazione alla lavorazione alla consegna, si ottiene un risultato che va oltre
+          le aspettative — un'opera unica, pensata e realizzata per durare nel tempo, che diventi
+          un punto di forza della casa, del lavoro, della vita quotidiana.
+        </p>
+        <div class="stats-grid reveal-down stagger-2">
+          <div class="stat-item">
+            <svg width="16" height="16" viewBox="0 0 100 100"><g><path d="M50,10 Q80,20 90,60 Q70,90 30,80 Q-10,60 10,30 Q30,10 50,10Z" fill="none" stroke="#5D4037" stroke-width="4"/></g></svg>
+            45+ anni di esperienza
+          </div>
+          <div class="stat-item">
+            <svg width="16" height="16" viewBox="0 0 100 100"><g><path d="M15,40 Q30,20 50,35 Q70,20 85,40" fill="none" stroke="#5D4037" stroke-width="4"/></g></svg>
+            Legno locale toscano
+          </div>
+          <div class="stat-item">
+            <svg width="16" height="16" viewBox="0 0 100 100"><circle cx="50" cy="50" r="12" fill="#5D4037"/></svg>
+            Tradizione familiare dal 1979
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="section section-alt" id="servizi">
+    <div class="container">
+      <div class="text-center" style="text-align:center; max-width:600px; margin:0 auto 3rem;">
+        <h2 class="text-headline reveal-down">Creiamo ogni pezzo su misura</h2>
+        <p class="text-subtitle reveal-down stagger-1" style="margin:0 auto;">
+          Dalla progettazione alla realizzazione completa, con la stessa cura artigianale di sempre.
+        </p>
+      </div>
+      <div class="grid grid-3">
+        <div class="service-card reveal-down">
+          <div class="service-icon"><svg width="48" height="48" viewBox="0 0 100 100"><g><path d="M10,20 Q50,5 90,20" fill="none" stroke="#5D4037" stroke-width="3"/><path d="M10,50 Q50,65 90,50" fill="none" stroke="#5D4037" stroke-width="3"/><path d="M10,80 Q50,95 90,80" fill="none" stroke="#5D4037" stroke-width="3"/></g></svg></div>
+          <h3>Infissi in legno</h3>
+          <p class="text-body">Finestre, porte e finestre dotate di serratura blindata e maniglia. Ogni infisso viene tagliato, assemblato e verniciato a mano dal nostro laboratorio.</p>
+        </div>
+        <div class="service-card reveal-down stagger-1">
+          <div class="service-icon"><svg width="48" height="48" viewBox="0 0 100 100"><g><path d="M10,50 Q50,10 90,50" fill="none" stroke="#5D4037" stroke-width="3" stroke-dasharray="8 4"/></g></svg></div>
+          <h3>Arredi su misura</h3>
+          <p class="text-body">Armadi, cucina, librerie e mobili specifici per la tua abitazione. Ogni progetto è unico, pensato per la tua esigenze e la tua casa.</p>
+        </div>
+        <div class="service-card reveal-down stagger-2">
+          <div class="service-icon"><svg width="48" height="48" viewBox="0 0 100 100"><g><path d="M10,50 L90,50 M10,50 L50,20 L90,50" fill="none" stroke="#5D4037" stroke-width="4" stroke-linecap="round"/></g></svg></div>
+          <h3>Risistemazioni</h3>
+          <p class="text-body">Restauro e risistemazioni di mobili antiche. Recupero di infissi e scale in legno originali. Mantiamo viva la memoria e il valore dei tuoi oggetti.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PORTFOLIO -->
+  <section class="section" id="portfolio">
+    <div class="container">
+      <div class="text-center" style="text-align:center; max-width:600px; margin:0 auto 3rem;">
+        <h2 class="text-headline reveal-down">Lavori recenti</h2>
+        <p class="text-subtitle reveal-down stagger-1" style="margin:0 auto;">
+          Ogni progetto racconta una storia unica. Ecco alcuni dei nostri lavori recenti
+          realizzati nel nostro laboratorio artigianale di Montepulciano.
+        </p>
+      </div>
+      <div class="gallery-grid reveal-down stagger-2">
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1615321565258-001cbe0b97b3?auto=format&fit=crop&w=400&q=60"
+               alt="Infisso in legno massello" loading="lazy">
+          <div class="overlay"><span class="overlay-text">Infisso</span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1605199044858-db2a59e95b8c?auto=format&fit=crop&w=400&q=60"
+               alt="Porta blindata in legno" loading="lazy">
+          <div class="overlay"><span class="overlay-text">Porta</span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1594029474877-7c63f0e3b97f?auto=format&fit=crop&w=400&q=60"
+               alt="Cucina in noce" loading="lazy">
+          <div class="overlay"><span class="overlay-text">Cucina</span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1582605104843-7e1986be5e5b?auto=format&fit=crop&w=400&q=60"
+               alt="Armadio in acero" loading="lazy">
+          <div class="overlay"><span class="overlay-text">Armadio</span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1580506127924-bd1ebcbe794c?auto=format&fit=crop&w=400&q=60"
+               alt="Scale in legno" loading="lazy">
+          <div class="overlay"><span class="overlay-text">Scale</span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1590787164993-3d735a6c1750?auto=format&fit=crop&w=400&q=60"
+               alt="Libreria in ciliegio" loading="lazy">
+          <div class="overlay"><span class="overlay-text">Libreria</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section section-alt" id="contatti">
+    <div class="container grid grid-2">
+      <div class="contact-info reveal-down">
+        <h2 class="text-headline">Fai partire il tuo progetto</h2>
+        <p class="text-body">
+          Contattaci per ottenere un preventivo gratuito e gratuito. Parlati con noi
+          delle tue idee e ti aiuterà a trasformarle in realtà con qualità e cura artigianale.
+        </p>
+        <h3 class="text-headline" style="font-size:1.5rem; margin-top:2rem;">Falegnameria Rossi</h3>
+        <p class="text-body" style="color:#6B4A36;">Via Roma 41, 53045 Montepulciano (SI)</p>
+        <p class="text-body" style="color:#6B4A36;">
+          Tel: <a href="tel:+39578751027">0578-751027</a><br>
+          Email: <a href="mailto:info@falegnameria-rossi.it">info@falegnameria-rossi.it</a>
+        </p>
+      </div>
+      <form class="contact-form reveal-down stagger-1">
+        <div class="form-group">
+          <label for="name">Nome completo *</label>
+          <input type="text" id="name" name="name" required class="form-input"
+                 placeholder="Francesco Rossi">
+        </div>
+        <div class="form-group">
+          <label for="email">Indirizzo email *</label>
+          <input type="email" id="email" name="email" required class="form-input"
+                 placeholder="francesco@example.com">
+        </div>
+        <div class="form-group">
+          <label for="phone">Telefono</label>
+          <input type="tel" id="phone" name="phone" class="form-input"
+                 placeholder="+39 330 1234567">
+        </div>
+        <div class="form-group">
+          <label for="message">Descrivi il tuo progetto *</label>
+          <textarea id="message" name="message" rows="6" required class="form-input"
+                    placeholder="Vorrei un preventivo per..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Invia il preventivo</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-section">
+          <h4>Falegnameria Rossi</h4>
+          <p>Creiamo e restauriamo mobili e finiture in legno massello a misura d'uomo. Tradizione e cura artigianale dal 1979.</p>
+        </div>
+        <div class="footer-section footer-links">
+          <h4>Servizi</h4>
+          <a href="#servizi">Infissi in legno</a>
+          <a href="#servizi">Arredi su misura</a>
+          <a href="#servizi">Risistemazioni</a>
+          <a href="#servizi">Progettazione</a>
+        </div>
+        <div class="footer-section">
+          <h4>Contatti</h4>
+          <p>Via Roma 41<br>
+          53045 Montepulciano (SI)</p>
+          <p><a href="tel:+39578751027">0578-751027</a><br>
+          <a href="mailto:info@falegnameria-rossi.it">info@falegnameria-rossi.it</a></p>
+        </div>
+        <div class="footer-section">
+          <h4>Social</h4>
+          <p>Seguici per rimanere aggiornato sui nostri lavori e progetti.</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; 2024 Falegnameria Artigianale Rossi — Via Roma 41, 53045 Montepulciano (SI) — CF e P.IVA: IT00011122233
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Intersection Observer for scroll reveal
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+        }
+      });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('.reveal-down').forEach(el => observer.observe(el));
+
+    // Header scroll effect
+    const header = document.querySelector('header');
+    let scrollDir = 0;
+    window.addEventListener('scroll', () => {
+      const currentScroll = window.scrollY;
+      if (currentScroll > scrollDir && currentScroll > 100) {
+        header.style.transform = 'translateY(-100%)';
+      } else {
+        header.style.transform = 'translateY(0)';
+      }
+      scrollDir = currentScroll;
+    });
+
+    // Lightbox
+    const lightbox = document.querySelector('.lightbox');
+    const lightboxImg = lightbox.querySelector('img');
+    const lightboxClose = lightbox.querySelector('.lightbox-close');
+
+    document.querySelectorAll('.gallery-item').forEach(item => {
+      item.addEventListener('click', () => {
+        const img = item.querySelector('img');
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt;
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+
+    lightboxClose.addEventListener('click', () => {
+      lightbox.classList.remove('active');
+      document.body.style.overflow = '';
+    });
+
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) {
+        lightbox.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    });
+
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+        lightbox.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    });
+
+    // Form submission
+    document.querySelector('.contact-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const btn = e.target.querySelector('button[type="submit"]');
+      const originalText = btn.textContent;
+      btn.textContent = 'Invio in corso...';
+      setTimeout(() => {
+        btn.textContent = 'Richiesta inviata! ✓';
+        e.target.reset();
+        setTimeout(() => {
+          btn.textContent = originalText;
+        }, 3000);
+      }, 1500);
+    });
+  </script>
+</body>
+</html>
